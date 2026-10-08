@@ -1,0 +1,43 @@
+# ------ root_path ------
+root_path: "/root/autodl-tmp/DATA"
+ood_dataset_path: "/root/autodl-tmp/DATA"
+clip_model_path: "/root/autodl-tmp/clip_weights"
+
+# ------ id dataset ------
+id_dataset: "eurosat"
+
+# ------ ood dataset ------
+ood_dataset: "dtd"
+
+# ------ Hyperparameters ------
+seed: 1
+shots: 4
+backbone: "ViT-B/16"
+K: 3
+csc: False
+template: "a photo of a"
+
+lr: 0.002
+fine_tune_train_epoch: 200
+fine_tune_batch_size: 160
+test_batch_size: 64
+
+# ------ Negative Prompt ------
+use_negative_prompt: True
+negative_template: "a photo of not a"
+negative_template_name: "notphoto"
+
+# Keep the same final loss weights
+lambda_neg: 0.10
+lambda_margin: 0.15
+neg_margin: 0.10
+neg_loss_scale: 100.0
+
+# ------ Correct Gate disabled ------
+use_conf_gate: False
+conf_gate_min: 0.5
+conf_gate_gamma: 1.0
+margin_correct_only: False
+
+# ------ CAM disabled ------
+use_class_adaptive_margin: False

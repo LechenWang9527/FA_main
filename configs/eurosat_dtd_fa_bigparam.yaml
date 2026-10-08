@@ -1,0 +1,25 @@
+# ------ root_path ------
+root_path: "/root/autodl-tmp/DATA"
+ood_dataset_path: "/root/autodl-tmp/DATA"
+clip_model_path: "/root/autodl-tmp/clip_weights"
+
+# ------ id dataset ------
+id_dataset: "eurosat"
+
+# ------ ood_dataset ------
+ood_dataset: "dtd"
+
+# ------ Hyperparamters ------
+seed: 1
+
+shots: 4
+backbone: "ViT-B/16"
+K: 3
+csc: False
+template: "a photo of a"
+
+lr: 0.002
+fine_tune_train_epoch: 200
+fine_tune_batch_size: 160
+
+test_batch_size: 64

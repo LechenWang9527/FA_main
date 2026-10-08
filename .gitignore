@@ -1,0 +1,28 @@
+# Large datasets and downloaded archives
+data/
+datasets/
+**/data/
+**/datasets/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# Model weights and generated experiment outputs
+my_caches/
+logs/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+
+# Python and notebook caches
+__pycache__/
+**/__pycache__/
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.py[cod]
+*.swp

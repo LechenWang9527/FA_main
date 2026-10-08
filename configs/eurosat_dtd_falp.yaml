@@ -1,0 +1,33 @@
+# ------ root_path ------
+root_path: "/root/autodl-tmp/DATA"
+ood_dataset_path: "/root/autodl-tmp/DATA"
+clip_model_path: "/root/autodl-tmp/clip_weights"
+
+# ------ id dataset ------
+id_dataset: "eurosat"
+
+# ------ ood_dataset ------
+ood_dataset: "dtd"
+
+# ------ Hyperparamters ------
+seed: 1
+
+shots: 4
+backbone: "ViT-B/16"
+K: 3
+csc: False
+template: "a photo of a"
+
+lr: 0.002
+fine_tune_train_epoch: 5
+fine_tune_batch_size: 32
+
+test_batch_size: 64
+
+# ------ Local Prompt Improvement ------
+use_local_prompt: True
+local_template: "a local region of a"
+lambda_local: 0.2
+beta_local: 1.0
+local_pool: "max"
+local_topk: 3

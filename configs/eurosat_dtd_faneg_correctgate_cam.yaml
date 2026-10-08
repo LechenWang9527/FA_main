@@ -1,0 +1,45 @@
+# ------ root_path ------
+root_path: "/root/autodl-tmp/DATA"
+ood_dataset_path: "/root/autodl-tmp/DATA"
+clip_model_path: "/root/autodl-tmp/clip_weights"
+
+# ------ id dataset ------
+id_dataset: "eurosat"
+
+# ------ ood_dataset ------
+ood_dataset: "dtd"
+
+# ------ Hyperparamters ------
+seed: 1
+shots: 4
+backbone: "ViT-B/16"
+K: 3
+csc: False
+template: "a photo of a"
+
+lr: 0.002
+fine_tune_train_epoch: 200
+fine_tune_batch_size: 160
+test_batch_size: 64
+
+# ------ FA-Neg ------
+use_negative_prompt: True
+negative_template: "a photo of not a"
+negative_template_name: "notphoto"
+lambda_neg: 0.1
+lambda_margin: 0.1
+neg_margin: 0.1
+neg_loss_scale: 100.0
+alpha_neg: 0.5
+
+# ------ Safe training gate ------
+# Keep negative supervision active, but apply margin mainly on reliable samples.
+use_conf_gate: True
+conf_gate_gamma: 1.0
+conf_gate_min: 0.5
+margin_correct_only: True
+
+# ------ Class-adaptive margin ------
+# One margin per class, computed from frozen CLIP image prototypes.
+# It keeps the base neg_margin and only adjusts it within +/-20% in code.
+use_class_adaptive_margin: True
